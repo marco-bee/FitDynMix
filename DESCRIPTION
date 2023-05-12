@@ -1,5 +1,5 @@
 Package: FitDynMix
-Title: Title: Estimation of a Dynamic Lognormal - Generalized Pareto Mixture
+Title: Title: Estimation of dynamic Lognormal - Generalized Pareto mixtures
 Version: 0.0.0.9000
 Authors@R: 
     person("Marco", "Bee", , "marco.bee@unitn.it", role = c("aut", "cre"),

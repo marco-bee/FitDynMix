@@ -4,7 +4,7 @@
 \alias{AMLEfit}
 \title{Estimating a dynamic mixture via AMLE}
 \usage{
-AMLEfit(yObs, epsilon, k, bootreps, intTol = 0.001)
+AMLEfit(yObs, epsilon, k, bootreps, intTol = 1e-04)
 }
 \arguments{
 \item{yObs}{numerical vector: observed sample.}
