@@ -41,7 +41,7 @@
 #'
 #' @importFrom Rdpack reprompt
 
-AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-3)
+AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-4)
 {
   n = length(yObs)
   mediana = median(yObs)
