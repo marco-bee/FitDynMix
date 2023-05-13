@@ -34,6 +34,11 @@
 #' @keywords dynamic mixture; approximate maximum likelihood.
 #' @seealso [AMLEmode, MLEfit]
 #' @export
+#' @examples
+#' k <- 50000
+#' epsilon <- .005
+#' bootreps <- 100
+#' res = AMLEfit(Metro2019, epsilon, k, bootreps)
 #' @references{
 #'   \insertRef{bee22b}{LNPar}
 #' }

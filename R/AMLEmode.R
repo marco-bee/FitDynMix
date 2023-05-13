@@ -5,16 +5,13 @@
 #' 2. the product of the maxima of the univariate kernel densities estimated using the marginals
 #' 3. the maximum of the multivariate kernel density
 #' 4. the maximum of the product of the univariate kernel densities
-#'
+#' Typically used in connection with AMLEfit (see AMLEfit for examples).
 #' @param ABCsam (m x k) matrix: ABC sample, where m is the ABC sample size and k is the
 #' number of parameters.
 #' @return A list containing the 4 approximate modes.
 #' @details The bandwidth is estimated via smoothed cross-validation
 #' @keywords dynamic mixture; approximate maximum likelihood.
 #' @export
-#' @examples
-#' mixFit <- DynMixfit(TN2016,0.005,5000,100,AMLE=TRUE)
-#' res <- AMLEmode(mixFit$ABCsam)
 
 AMLEmode <- function(ABCsam)
 {
