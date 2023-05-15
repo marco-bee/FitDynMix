@@ -48,6 +48,12 @@ For the Cauchy parameters, the support is given by the range of the
 bootstrap distribution after discarding the outliers.
 Be aware that computing times are large when k and/or bootreps are large.
 }
+\examples{
+k <- 50000
+epsilon <- .005
+bootreps <- 100
+res = AMLEfit(Metro2019, epsilon, k, bootreps)
+}
 \references{
 {
 \insertRef{bee22b}{LNPar}

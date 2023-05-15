@@ -131,7 +131,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
     }
     if (nit >= maxiter)
     {
-      results = list(V=v[1:maxiter-1,],nit=(nit-1),loglik=sum(loglik))
+      results = list(V=v[1:(maxiter-1),],nit=(nit-1),loglik=sum(loglik))
       break
     }
   }

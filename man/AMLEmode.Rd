@@ -20,14 +20,11 @@ This function approximates the mode of a multivariate empirical distribution by 
 \item the product of the maxima of the univariate kernel densities estimated using the marginals
 \item the maximum of the multivariate kernel density
 \item the maximum of the product of the univariate kernel densities
+Typically used in connection with AMLEfit (see AMLEfit for examples).
 }
 }
 \details{
 The bandwidth is estimated via smoothed cross-validation
-}
-\examples{
-mixFit <- DynMixfit(TN2016,0.005,5000,100,AMLE=TRUE)
-res <- AMLEmode(mixFit$ABCsam)
 }
 \keyword{approximate}
 \keyword{dynamic}
