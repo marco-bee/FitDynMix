@@ -56,7 +56,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
   beta0 = evir::gpd(y2, mediana)$par.ests["beta"]
   muc0 = quantile(yObs, 0.5)
   tau0 = log(sd(yObs)/2)
-  v0 = c(as.double(muc0), 1, tau0, 1.5, as.double(mu0), 1, as.double(sigma0), 1, as.double(xi0), 2, as.double(beta0), 2)
+  v0 = c(as.double(muc0), 1, tau0, 1.5, as.double(mu0), 1, as.double(sigma0), 1, as.double(log(xi0)), 2, as.double(log(beta0)), 2)
 
   X = matrix(0,nsim,6) # columns = number of parameters to be estimated
   v = matrix(0,nsim,12) # columns = number of parameters of the instrumental distributions
@@ -69,8 +69,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
   while (change > eps & nit <= maxiter)             # start iterations
   {
     X[,1] = rnorm(nsim,v[nit-1,1],v[nit-1,2]) # CA1
-    temp = rlnorm(nsim,v[nit-1,3],v[nit-1,4])
-    X[,2] = temp # CA2
+    X[,2] = rlnorm(nsim,v[nit-1,3],v[nit-1,4])# CA2
     X[,3] = rnorm(nsim,v[nit-1,5],v[nit-1,6]) # mu
     X[,4] = rlnorm(nsim,v[nit-1,7],v[nit-1,8]) # sigma
     X[,5] = rlnorm(nsim,v[nit-1,9],v[nit-1,10]) # xi
@@ -105,13 +104,6 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
     v[nit,10] = alpha * v[nit,10] + (1-alpha) * v[nit-1,10]
     v[nit,11] = alpha * v[nit,11] + (1-alpha) * v[nit-1,11]
     v[nit,12] = alpha * v[nit,12] + (1-alpha) * v[nit-1,12]
-    p1 = v[nit,1]
-    p2 = exp(v[nit,3]+v[nit,4]^2/2)
-    p2a = mean(X[,2])
-    p3 = v[nit,5]
-    p4 = exp(v[nit,7]+v[nit,8]^2/2)
-    p5 = exp(v[nit,9]+v[nit,10]^2/2)
-    p6 = exp(v[nit,11]+v[nit,12]^2/2)
     change = max(c(v[nit,2],v[nit,4],v[nit,6],v[nit,8],v[nit,10],v[nit,12]))
     if (nit>10)
     {
@@ -126,7 +118,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
     nit = nit + 1
     if (nit < maxiter && change < eps)
     {
-      results = list(v[1:nit-1,],(nit-1),sum(loglik))
+      results = list(v[1:(nit-1),],(nit-1),sum(loglik))
       break
     }
     if (nit >= maxiter)
