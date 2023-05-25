@@ -52,7 +52,8 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
   y2 = yObs[yObs >= mediana]
   mu0 = MASS::fitdistr(y1, "lognormal")$estimate[1]
   sigma0 = MASS::fitdistr(y1, "lognormal")$estimate[2]
-  xi0 = evir::gpd(y2, mediana)$par.ests["xi"]
+  xi0Est = evir::gpd(y2, mediana)$par.ests["xi"]
+  xi0 = pmax(xi0Est,.01)
   beta0 = evir::gpd(y2, mediana)$par.ests["beta"]
   muc0 = quantile(yObs, 0.5)
   tau0 = log(sd(yObs)/2)
@@ -127,6 +128,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
       break
     }
   }
+#  write.csv(results[[1]],paste('output',x,'.csv',sep=''),row.names=FALSE,col.names=FALSE)
   return(results)
 }
 
