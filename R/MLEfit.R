@@ -6,7 +6,7 @@
 #' @param yObs numerical vector: observed sample.
 #' @param bootreps non-negative integer: number of bootstrap replications. If equal to 0, no standard errors are computed.
 #' @param intTol non-negative scalar: threshold for stopping the computation of the integral in the normalization
-#' constant: if the integral on [n-1,n] is smaller than intTol, the approximation procedure stops.
+#' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.
 #' @return 
 #'
 #' MLEpars (7 x 1) vector: maximum likelihood estimates and
@@ -33,7 +33,7 @@
 #'
 #' @importFrom Rdpack reprompt
 
-MLEfit <- function(yObs,epsilon,k,bootreps,AMLE=TRUE,intTol=1e-4)
+MLEfit <- function(yObs,bootreps,intTol=1e-4)
 {
   n = length(yObs)
   mediana = median(yObs)
