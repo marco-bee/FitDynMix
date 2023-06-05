@@ -12,7 +12,7 @@ ddyn(x, pars, intTol)
 \item{pars}{(6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
-constant: if the integral on \link{n-1,n} is smaller than intTol, the approximation procedure stops.}
+constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
 }
 \value{
 density of the lognormal-GPD mixture evaluated at x.

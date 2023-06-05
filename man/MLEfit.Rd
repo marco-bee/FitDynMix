@@ -4,7 +4,7 @@
 \alias{MLEfit}
 \title{Estimating a dynamic mixture via MLE}
 \usage{
-MLEfit(yObs, epsilon, k, bootreps, AMLE = TRUE, intTol = 1e-04)
+MLEfit(yObs, bootreps, intTol = 1e-04)
 }
 \arguments{
 \item{yObs}{numerical vector: observed sample.}
@@ -12,7 +12,7 @@ MLEfit(yObs, epsilon, k, bootreps, AMLE = TRUE, intTol = 1e-04)
 \item{bootreps}{non-negative integer: number of bootstrap replications. If equal to 0, no standard errors are computed.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
-constant: if the integral on \link{n-1,n} is smaller than intTol, the approximation procedure stops.}
+constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
 }
 \value{
 MLEpars (7 x 1) vector: maximum likelihood estimates and

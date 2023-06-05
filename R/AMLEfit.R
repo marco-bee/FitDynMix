@@ -10,7 +10,7 @@
 #' approach, such that k*epsilon = ABC sample size.
 #' @param bootreps positive integer: number of bootstrap replications.
 #' @param intTol non-negative scalar: threshold for stopping the computation of the integral in the normalization
-#' constant: if the integral on [n-1,n] is smaller than intTol, the approximation procedure stops.
+#' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.
 #' @return A list with the following elements:
 #'
 #' AMLEpars a list of four 6-dimensional vectors: approximate maximum likelihood estimates computed via sample mean,

@@ -12,7 +12,7 @@ dynloglik(x, y, intTol)
 \item{y}{vector: points where the function is evaluated.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
-constant: if the integral on \link{n-1,n} is smaller than intTol, the approximation procedure stops.}
+constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
 }
 \value{
 log-likelihood of the lognormal-GPD mixture evaluated at y.

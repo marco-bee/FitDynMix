@@ -5,7 +5,6 @@
 #' method and computes bootstrap standard errors.
 #' Currently only implemented for the lognormal - generalized Pareto case. Bootstrap
 #' standard errors are computed in parallel.
-#' @param x list of integers: indices of replications.
 #' @param yObs numerical vector: observed random sample from the mixture.
 #' @param nboot integer: number of bootstrap replications for computing the standard errors.
 #' If nboot = 0, no standard errors are computed.

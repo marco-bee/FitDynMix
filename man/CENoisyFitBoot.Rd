@@ -26,8 +26,6 @@ If nboot = 0, no standard errors are computed.}
 \item{eps}{non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.}
 
 \item{r}{positive integer: length of window to be used in the stopping criterion.}
-
-\item{x}{list of integers: indices of replications.}
 }
 \value{
 If nboot > 0, a list with the following elements:

@@ -4,7 +4,7 @@
 #' @param x (6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.
 #' @param y vector: points where the function is evaluated.
 #' @param intTol non-negative scalar: threshold for stopping the computation of the integral in the normalization
-#' constant: if the integral on [n-1,n] is smaller than intTol, the approximation procedure stops.
+#' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.
 #' @return log-likelihood of the lognormal-GPD mixture evaluated at y.
 #' @keywords dynamic mixture.
 #' @export

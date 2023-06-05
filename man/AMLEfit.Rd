@@ -17,7 +17,7 @@ approach, such that k*epsilon = ABC sample size.}
 \item{bootreps}{positive integer: number of bootstrap replications.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
-constant: if the integral on \link{n-1,n} is smaller than intTol, the approximation procedure stops.}
+constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
 }
 \value{
 A list with the following elements:
