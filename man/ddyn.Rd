@@ -21,6 +21,8 @@ density of the lognormal-GPD mixture evaluated at x.
 This function evaluates the density of a Lognormal-GPD dynamic mixture.
 }
 \examples{
+x <- seq(0,20,length.out=1000)
+pars <- c(1,2,0,.5,.25,3.5)
 dLNPar <- ddyn(x,pars,1e-04)
 }
 \keyword{dynamic}

@@ -2,7 +2,7 @@
 #'
 #' This function estimates a dynamic mixture by means of the noisy Cross-Entropy method.
 #' Currently only implemented for the lognormal - generalized Pareto case. This function
-#' is mostly an auxiliary function, not suitable for the final user. Please use CeNoisyFitBoot.R instead.
+#' is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot.R instead.
 #' @param x list: sequence of integers 1,...,K, where K is the mumber of datasets. Set x = 1 in case
 #' of a single dataset. 
 #' @param rawdata either a list of vectors or a vector: in the former case, each

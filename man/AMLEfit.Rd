@@ -56,7 +56,7 @@ res = AMLEfit(Metro2019, epsilon, k, bootreps)
 }
 \references{
 {
-\insertRef{bee22b}{LNPar}
+\insertRef{bee22b}{FitDynMix}
 }
 }
 \seealso{

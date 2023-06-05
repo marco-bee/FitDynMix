@@ -9,6 +9,8 @@
 #' @keywords dynamic mixture.
 #' @export
 #' @examples
+#' x <- seq(0,20,length.out=1000)
+#' pars <- c(1,2,0,.5,.25,3.5)
 #' dLNPar <- ddyn(x,pars,1e-04)
 
 ddyn <- function(x,pars,intTol)

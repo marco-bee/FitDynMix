@@ -39,7 +39,7 @@ mixFit <- MLEfit(TN2016,0.005,100)
 }
 \references{
 {
-\insertRef{bee22b}{LNPar}
+\insertRef{bee22b}{FitDynMix}
 }
 }
 \seealso{

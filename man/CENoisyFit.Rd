@@ -37,7 +37,7 @@ loglik (scalar): maximized log-likelihood.
 \description{
 This function estimates a dynamic mixture by means of the noisy Cross-Entropy method.
 Currently only implemented for the lognormal - generalized Pareto case. This function
-is mostly an auxiliary function, not suitable for the final user. Please use CeNoisyFitBoot.R instead.
+is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot.R instead.
 }
 \details{
 See Rubinstein and Kroese (2004, chap. 6).

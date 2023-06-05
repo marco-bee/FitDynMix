@@ -9,6 +9,8 @@
 #' @keywords dynamic mixture.
 #' @export
 #' @examples
+#' x <- c(1,2,0,.5,.25,3.5)
+#' y <- rDynMix(100,x)
 #' fit <- dynloglik(x,y,1e-06)
 
 dynloglik <- function(x,y,intTol)

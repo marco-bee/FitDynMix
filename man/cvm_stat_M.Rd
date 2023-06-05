@@ -28,7 +28,7 @@ out = cvm_stat_M(runif(100),rnorm(100),2)
 }
 \references{
 {
-\insertRef{dro22}{LNPar}
+\insertRef{dro22}{FitDynMix}
 }
 }
 \keyword{dynamic}

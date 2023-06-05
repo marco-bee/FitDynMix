@@ -21,6 +21,8 @@ log-likelihood of the lognormal-GPD mixture evaluated at y.
 This function evaluates the log-likelihood of a Lognormal-GPD dynamic mixture, computing the integral in the normalizing constant via quadrature methods.
 }
 \examples{
+x <- c(1,2,0,.5,.25,3.5)
+y <- rDynMix(100,x)
 fit <- dynloglik(x,y,1e-06)
 }
 \keyword{dynamic}

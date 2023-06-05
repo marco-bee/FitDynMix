@@ -40,7 +40,7 @@
 #' bootreps <- 100
 #' res = AMLEfit(Metro2019, epsilon, k, bootreps)
 #' @references{
-#'   \insertRef{bee22b}{LNPar}
+#'   \insertRef{bee22b}{FitDynMix}
 #' }
 #'
 #'
@@ -62,7 +62,13 @@ AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-4)
   res <- optim(x0Lik,dynloglik, gr=NULL,yObs,intTol,method='L-BFGS-B',lower=c(-Inf,.01,-Inf,.05,10^-10,.1),upper=c(Inf,Inf,Inf,10,Inf,10),control=list(fnscale=-1))
   estMLE <- c(res$par,res$value) # muc, tau, mu, sigma, xi, beta
   nreps.list <- sapply(1:bootreps, list)
-  n.cores <- parallel::detectCores()
+  
+  chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+  if (nzchar(chk) && chk == "TRUE") {
+    n.cores <- 2L
+  } else {
+    n.cores <- parallel::detectCores()
+  }
   clust <- parallel::makeCluster(n.cores)
   MLEboot = matrix(0,bootreps,6)
   temp <- parallel::parLapply(clust,nreps.list, MLEBoot,yObs,intTol)
