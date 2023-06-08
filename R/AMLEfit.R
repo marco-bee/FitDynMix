@@ -2,7 +2,7 @@
 #'
 #' This function fits a dynamic mixture via Approximate Maximum Likelihood.
 #' Currently only implemented for the lognormal - generalized Pareto case.
-#' The bootstrap estimation of the standard errors of #' the MLEs (used for finding
+#' The bootstrap estimation of the standard errors of the MLEs (used for finding
 #' the supports of the uniform priors) is carried outed via parallel computing.
 #' @param yObs numerical vector: observed sample.
 #' @param epsilon non-negative scalar: scale parameter of the Markov kernel.
@@ -32,12 +32,12 @@
 #' bootstrap distribution after discarding the outliers.
 #' Be aware that computing times are large when k and/or bootreps are large.
 #' @keywords dynamic mixture; approximate maximum likelihood.
-#' @seealso [AMLEmode, MLEfit]
+#' @seealso{\code{\link{AMLEmode}}.}
 #' @export
 #' @examples
-#' k <- 50000
-#' epsilon <- .005
-#' bootreps <- 100
+#' k <- 5000
+#' epsilon <- .02
+#' bootreps <- 2
 #' res = AMLEfit(Metro2019, epsilon, k, bootreps)
 #' @references{
 #'   \insertRef{bee22b}{FitDynMix}

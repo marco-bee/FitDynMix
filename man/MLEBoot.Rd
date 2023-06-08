@@ -9,9 +9,10 @@ MLEBoot(x, y, intTol)
 \arguments{
 \item{x}{list of integers: indices of replications.}
 
-\item{y}{numerical vector: observed random sample from the mixture.}
+\item{y}{numerical vector: observed data.}
 
-\item{intTol}{tolerance}
+\item{intTol}{threshold for stopping the computation of the integral in the normalization
+constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
 }
 \value{
 A list with the following elements:
@@ -30,7 +31,7 @@ down, the sample is discarded and a new one is generated. The function keeps
 track of the number of times this happens.
 }
 \examples{
-bootMLEs <- MLEBoot(TN2016,100)
+bootMLEs <- MLEBoot(1,Metro2019,1e-04)
 }
 \keyword{MLE;}
 \keyword{bootstrap.}

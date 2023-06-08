@@ -25,7 +25,7 @@
 #' @seealso [AMLEfit]
 #' @export
 #' @examples
-#' mixFit <- MLEfit(TN2016,0.005,100)
+#' mixFit <- MLEfit(Metro2019,2)
 #' @references{
 #'   \insertRef{bee22b}{FitDynMix}
 #' }
@@ -51,7 +51,12 @@ MLEfit <- function(yObs,bootreps,intTol=1e-4)
   if (bootreps > 0)
   {
     nreps.list <- sapply(1:bootreps, list)
-    n.cores <- parallel::detectCores()
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    if (nzchar(chk) && chk == "TRUE") {
+      n.cores <- 2L
+    } else {
+      n.cores <- parallel::detectCores()
+    }
     clust <- parallel::makeCluster(n.cores)
     MLEboot = matrix(0,bootreps,6)
 #    temp <- lapply(nreps.list, MLEBoot,yObs,intTol)

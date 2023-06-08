@@ -3,8 +3,9 @@
 #' This function creates bootstrap samples of input data and fits a dynamic mixture via
 #' standard maximum likelihood.
 #' @param x list of integers: indices of replications.
-#' @param y numerical vector: observed random sample from the mixture.
-#' @param intTol tolerance
+#' @param y numerical vector: observed data.
+#' @param intTol threshold for stopping the computation of the integral in the normalization
+#' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.
 #' @return A list with the following elements:
 #'
 #' MLE: maximum likelihood estimates obtained from each bootstrap sample.
@@ -16,7 +17,7 @@
 #' @keywords dynamic mixture; MLE; non-parametric bootstrap.
 #' @export
 #' @examples
-#' bootMLEs <- MLEBoot(TN2016,100)
+#' bootMLEs <- MLEBoot(1,Metro2019,1e-04)
 
 MLEBoot = function(x,y,intTol)
 {

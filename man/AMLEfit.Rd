@@ -37,7 +37,7 @@ each bootstrap replication.
 \description{
 This function fits a dynamic mixture via Approximate Maximum Likelihood.
 Currently only implemented for the lognormal - generalized Pareto case.
-The bootstrap estimation of the standard errors of #' the MLEs (used for finding
+The bootstrap estimation of the standard errors of the MLEs (used for finding
 the supports of the uniform priors) is carried outed via parallel computing.
 }
 \details{
@@ -49,9 +49,9 @@ bootstrap distribution after discarding the outliers.
 Be aware that computing times are large when k and/or bootreps are large.
 }
 \examples{
-k <- 50000
-epsilon <- .005
-bootreps <- 100
+k <- 5000
+epsilon <- .02
+bootreps <- 2
 res = AMLEfit(Metro2019, epsilon, k, bootreps)
 }
 \references{
@@ -60,7 +60,7 @@ res = AMLEfit(Metro2019, epsilon, k, bootreps)
 }
 }
 \seealso{
-\link{AMLEmode, MLEfit}
+{\code{\link{AMLEmode}}.}
 }
 \keyword{approximate}
 \keyword{dynamic}

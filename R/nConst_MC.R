@@ -10,7 +10,7 @@
 #' @keywords dynamic mixture.
 #' @export
 #' @examples
-#' nconst <- nConst_MC(x, 10000)
+#' nconst <- nConst_MC(c(1,2,0,0.5,0.25,3.5), 10000)
 
 nConst_MC = function (x, nreps, xiInst=3, betaInst=3)
 {
