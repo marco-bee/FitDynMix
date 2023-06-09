@@ -19,6 +19,8 @@ Imports:
          pracma,
          Rdpack,
   	     parallel,
-  	     ks
+  	     ks,
+  	     stats,
+  	     graphics
 URL: https://github.com/marco-bee/FitDynMix
 BugReports: https://github.com/marco-bee/FitDynMix/issues

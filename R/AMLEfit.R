@@ -34,6 +34,7 @@
 #' @keywords dynamic mixture; approximate maximum likelihood.
 #' @seealso{\code{\link{AMLEmode}}.}
 #' @export
+#' @import stats graphics
 #' @examples
 #' k <- 5000
 #' epsilon <- .02
@@ -130,7 +131,7 @@ AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-4)
   for (j in 1:k)
   {
     dataSim <- rDynMix(n,c(CA1V[j],CA2V[j],muV[j],sigmaV[j],xiV[j],betaV[j]))
-    distCVM[j] = cvm_stat_M(yObs,dataSim,p=2)
+    distCVM[j] = cvm_stat_M(yObs,dataSim,power = 2)
   }
   
   # Select only epsilon values
