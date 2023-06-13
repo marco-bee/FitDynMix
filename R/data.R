@@ -4,5 +4,5 @@
 #' 415 US metropolitan areas computed by the US Census Bureau.
 #'
 #' @format A numerical vector with 415 rows and 1 column.
-#' @source \url{https://www.census.gov/data/datasets/time-series/demo/popest/2010s-total-metro-and-micro-statistical-%20areas.html/}
+#' @source \url{https://www.census.gov}
 "Metro2019"
