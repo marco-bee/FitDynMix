@@ -38,7 +38,7 @@
 #' @examples
 #' k <- 5000
 #' epsilon <- .02
-#' bootreps <- 0
+#' bootreps <- 2
 #' res = AMLEfit(Metro2019, epsilon, k, bootreps)
 #' @references{
 #'   \insertRef{bee22b}{FitDynMix}
