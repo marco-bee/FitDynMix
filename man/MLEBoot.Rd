@@ -31,7 +31,7 @@ down, the sample is discarded and a new one is generated. The function keeps
 track of the number of times this happens.
 }
 \examples{
-bootMLEs <- MLEBoot(1,Metro2019,1e-04)
+bootMLEs <- MLEBoot(1,Metro2019,1e-02)
 }
 \keyword{MLE;}
 \keyword{bootstrap.}

@@ -35,7 +35,8 @@ tau are the GPD MLEs obtained with the observations above the median.
 For the location and scale parameter of the Cauchy, we respectively use the first quartile and log(sd(x)/2).
 }
 \examples{
-mixFit <- MLEfit(Metro2019,2)
+\dontrun{
+mixFit <- MLEfit(Metro2019,0)}
 }
 \references{
 {

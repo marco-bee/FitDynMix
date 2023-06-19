@@ -49,7 +49,7 @@ Currently only implemented for the lognormal - generalized Pareto case. Bootstra
 standard errors are computed in parallel.
 }
 \examples{
-res = CENoisyFitBoot(Metro2019,0,.05,20,.5,1000,10000,.01)
+res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,.01)
 }
 \keyword{Cross-Entropy;}
 \keyword{bootstrap.}

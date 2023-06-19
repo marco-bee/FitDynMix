@@ -36,10 +36,10 @@
 #' @export
 #' @import stats graphics
 #' @examples
-#' k <- 5000
+#' \dontrun{k <- 5000
 #' epsilon <- .02
 #' bootreps <- 2
-#' res = AMLEfit(Metro2019, epsilon, k, bootreps)
+#' res = AMLEfit(Metro2019, epsilon, k, bootreps)}
 #' @references{
 #'   \insertRef{bee22b}{FitDynMix}
 #' }

@@ -17,7 +17,7 @@
 #' @keywords dynamic mixture; MLE; non-parametric bootstrap.
 #' @export
 #' @examples
-#' bootMLEs <- MLEBoot(1,Metro2019,1e-04)
+#' bootMLEs <- MLEBoot(1,Metro2019,1e-02)
 
 MLEBoot = function(x,y,intTol)
 {

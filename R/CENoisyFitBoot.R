@@ -31,7 +31,7 @@
 #' @keywords dynamic mixture; Cross-Entropy; non-parametric bootstrap.
 #' @export
 #' @examples
-#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,1000,10000,.01)
+#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,.01)
 
 CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
 {

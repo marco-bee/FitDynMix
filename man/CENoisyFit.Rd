@@ -43,12 +43,12 @@ is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFit
 See Rubinstein and Kroese (2004, chap. 6).
 }
 \examples{
-maxiter = 200
+maxiter = 10
 alpha = .5
 rho = .05
 eps = 1e-2
 nsim = 1000
-nrepsInt = 10000
+nrepsInt = 1000
 res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,eps)
 
 }
