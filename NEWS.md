@@ -1,3 +1,3 @@
-# FitDynMix 0.0.0.9000
+# FitDynMix 0.1.0
 
-* Added a `NEWS.md` file to track changes to the package.
+The first release of FitDynMix provides facilities for estimation of a lognormal-GPD dynamic mixture.
