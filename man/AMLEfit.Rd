@@ -49,7 +49,7 @@ bootstrap distribution after discarding the outliers.
 Be aware that computing times are large when k and/or bootreps are large.
 }
 \examples{
-\dontrun{k <- 5000
+\donttest{k <- 5000
 epsilon <- .02
 bootreps <- 2
 res = AMLEfit(Metro2019, epsilon, k, bootreps)}

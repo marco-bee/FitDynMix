@@ -52,7 +52,12 @@ CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5)
       Yboot[[i]] = sample(yObs,n,replace=TRUE)
     }
     nboot.list <- sapply(1:nboot, list)
-    n.cores <- parallel::detectCores()
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    if (nzchar(chk) && chk == "TRUE") {
+      n.cores <- 2L
+    } else {
+      n.cores <- parallel::detectCores()
+    }
     clust <- parallel::makeCluster(n.cores)
     temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,eps)
     parallel::stopCluster(cl=clust)

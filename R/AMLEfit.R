@@ -36,7 +36,7 @@
 #' @export
 #' @import stats graphics
 #' @examples
-#' \dontrun{k <- 5000
+#' \donttest{k <- 5000
 #' epsilon <- .02
 #' bootreps <- 2
 #' res = AMLEfit(Metro2019, epsilon, k, bootreps)}

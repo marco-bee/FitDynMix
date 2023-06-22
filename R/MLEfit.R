@@ -25,7 +25,7 @@
 #' @seealso [AMLEfit]
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' mixFit <- MLEfit(Metro2019,0)}
 #' @references{
 #'   \insertRef{bee22b}{FitDynMix}
