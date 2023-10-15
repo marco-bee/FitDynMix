@@ -4,7 +4,7 @@
 \alias{CENoisyFit}
 \title{Estimating a dynamic mixture via the noisy Cross-Entropy method}
 \usage{
-CENoisyFit(x, rawdata, rho, maxiter, alpha, nsim, nrepsInt, eps, r = 5)
+CENoisyFit(x, rawdata, rho, maxiter, alpha, nsim, nrepsInt, eps, r = 5, weight)
 }
 \arguments{
 \item{x}{list: sequence of integers 1,...,K, where K is the mumber of datasets. Set x = 1 in case
@@ -26,6 +26,8 @@ vector contains a dataset to be used for estimation.}
 \item{eps}{non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.}
 
 \item{r}{positive integer: length of window to be used in the stopping criterion.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 For each dataset, a list with the following elements is returned:
@@ -36,7 +38,8 @@ loglik (scalar): maximized log-likelihood.
 }
 \description{
 This function estimates a dynamic mixture by means of the noisy Cross-Entropy method.
-Currently only implemented for the lognormal - generalized Pareto case. This function
+Currently only implemented for the lognormal - generalized Pareto case,
+with Cauchy or exponential weight. This function
 is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot.R instead.
 }
 \details{

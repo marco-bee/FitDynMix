@@ -5,7 +5,18 @@
 \title{Estimating a dynamic mixture via noisy Cross-Entropy and computing
 bootstrap standard errors}
 \usage{
-CENoisyFitBoot(yObs, nboot, rho, maxiter, alpha, nsim, nrepsInt, eps, r = 5)
+CENoisyFitBoot(
+  yObs,
+  nboot,
+  rho,
+  maxiter,
+  alpha,
+  nsim,
+  nrepsInt,
+  eps,
+  r = 5,
+  weight
+)
 }
 \arguments{
 \item{yObs}{numerical vector: observed random sample from the mixture.}
@@ -26,6 +37,8 @@ If nboot = 0, no standard errors are computed.}
 \item{eps}{non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.}
 
 \item{r}{positive integer: length of window to be used in the stopping criterion.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 If nboot > 0, a list with the following elements:
@@ -45,8 +58,8 @@ If nboot = 0, only estPars, nit and loglik are returned.
 \description{
 This function estimates a dynamic mixture by means of the noisy Cross-Entropy
 method and computes bootstrap standard errors.
-Currently only implemented for the lognormal - generalized Pareto case. Bootstrap
-standard errors are computed in parallel.
+Currently only implemented for the lognormal - generalized Pareto,
+with Cauchy or exponential weight. Bootstrap standard errors are computed in parallel.
 }
 \examples{
 res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,.01)

@@ -4,26 +4,31 @@
 \alias{ddyn}
 \title{Density of a Lognormal-GPD dynamic mixture}
 \usage{
-ddyn(x, pars, intTol)
+ddyn(x, pars, intTol, weight)
 }
 \arguments{
-\item{x}{non-negative vector: points where the function is evaluated.}
+\item{x}{non-negative vector: points where the density is evaluated.}
 
-\item{pars}{(6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.}
+\item{pars}{numerical vector: if weight = cau, values of CA1, CA2,
+meanlog, sdlog, xi, beta; if weight = exp, values of lambda,
+meanlog, sdlog, xi, beta.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
 constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 density of the lognormal-GPD mixture evaluated at x.
 }
 \description{
-This function evaluates the density of a Lognormal-GPD dynamic mixture.
+This function evaluates the density of a Lognormal-GPD dynamic mixture,
+with Cauchy or exponential weight.
 }
 \examples{
 x <- seq(0,20,length.out=1000)
 pars <- c(1,2,0,.5,.25,3.5)
-dLNPar <- ddyn(x,pars,1e-04)
+dLNPar <- ddyn(x,pars,1e-04,'cau')
 }
 \keyword{dynamic}
 \keyword{mixture.}
