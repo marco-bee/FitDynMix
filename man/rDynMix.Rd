@@ -4,26 +4,30 @@
 \alias{rDynMix}
 \title{Simulating a dynamic lognormal-Pareto mixture}
 \usage{
-rDynMix(nreps, x)
+rDynMix(nreps, x, weight)
 }
 \arguments{
 \item{nreps}{integer: number of observations sampled from the mixture.}
 
-\item{x}{(6 by 1) numerical vector: values of mu_c, tau, mu, sigma, xi, beta.}
+\item{x}{numerical vector: if weight = cau, values of mu_c, tau, mu,
+sigma, xi, beta; if weight = exp, values of lambda, mu, sigma, xi, beta.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 ysim (nreps x 1) vector: nreps random numbers from the lognormal-GPD dynamic mixture.
 }
 \description{
 This function fits a dynamic mixture by Approximate Maximum Likelihood and by standard maximum likelihood.
-Currently only implemented for the lognormal - generalized Pareto case.
+Currently only implemented for the lognormal - generalized Pareto case,
+with Cauchy or exponential weight.
 }
 \details{
 This function simulates a dynamic lognormal-GPD mixture using
 the algorithm of Frigessi et al. (2002, p. 221).
 }
 \examples{
-ysim <- rDynMix(100,c(1,2,0,0.5,0.25,3))
+ysim <- rDynMix(100,c(1,2,0,0.5,0.25,3),'cau')
 }
 \references{
 {

@@ -4,7 +4,7 @@
 \alias{AMLEfit}
 \title{Estimating a dynamic mixture via AMLE}
 \usage{
-AMLEfit(yObs, epsilon, k, bootreps, intTol = 1e-04)
+AMLEfit(yObs, epsilon, k, bootreps, intTol = 1e-04, weight)
 }
 \arguments{
 \item{yObs}{numerical vector: observed sample.}
@@ -18,27 +18,30 @@ approach, such that k*epsilon = ABC sample size.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
 constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 A list with the following elements:
 
-AMLEpars a list of four 6-dimensional vectors: approximate maximum likelihood estimates computed via sample mean,
+AMLEpars a list of four 6 or 5-dimensional vectors: approximate maximum likelihood estimates computed via sample mean,
 maxima of the marginal kernel densities, maximum of the multivariate kernel densities,
 maximum of the product of the marginal kernel densities.
 
-ABCsam ((k x epsilon) x 6) matrix: ABC sample.
+ABCsam ((k x epsilon) x nc) matrix: ABC sample, where nc is 6 or 5, according to the weight.
 
-MLEpars (7 x 1) vector: maximum likelihood estimates and
-maximized log-likelihood.
+MLEpars (np x 1) vector: maximum likelihood estimates and
+maximized log-likelihood, where np is 7 or 6, according to the weight.
 
-MLEboot (bootreps x 6) matrix: maximum likelihood estimates obtained in
-each bootstrap replication.
+MLEboot (bootreps x nc) matrix: maximum likelihood estimates obtained in
+each bootstrap replication. nc is 6 or 5, according to the weight.
 }
 \description{
 This function fits a dynamic mixture via Approximate Maximum Likelihood.
-Currently only implemented for the lognormal - generalized Pareto case.
+Currently only implemented for the lognormal - generalized Pareto case,
+with Cauchy or exponential weight..
 The bootstrap estimation of the standard errors of the MLEs (used for finding
-the supports of the uniform priors) is carried outed via parallel computing.
+the supports of the uniform priors) is carried out via parallel computing.
 }
 \details{
 For the lognormal and GPD parameters, the support of the uniform
@@ -52,7 +55,7 @@ Be aware that computing times are large when k and/or bootreps are large.
 \donttest{k <- 5000
 epsilon <- .02
 bootreps <- 2
-res = AMLEfit(Metro2019, epsilon, k, bootreps)}
+res = AMLEfit(Metro2019, epsilon, k, bootreps, , 'cau')}
 }
 \references{
 {

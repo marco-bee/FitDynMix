@@ -4,7 +4,7 @@
 \alias{MLEfit}
 \title{Estimating a dynamic mixture via MLE}
 \usage{
-MLEfit(yObs, bootreps, intTol = 1e-04)
+MLEfit(yObs, bootreps, intTol = 1e-04, weight)
 }
 \arguments{
 \item{yObs}{numerical vector: observed sample.}
@@ -13,30 +13,34 @@ MLEfit(yObs, bootreps, intTol = 1e-04)
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
 constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
+
+\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
-MLEpars (7 x 1) vector: maximum likelihood estimates and
-maximized log-likelihood.
+MLEpars vector: maximum likelihood estimates and maximized
+log-likelihood.
 
-MLEboot (bootreps x 6) matrix: maximum likelihood estimates obtained in
+MLEboot matrix: maximum likelihood estimates obtained in
 each bootstrap replication.
 
-sdMLE (6 x 1) vector: bootstrap standard deviation of the MLEs.
+sdMLE vector: bootstrap standard deviation of the MLEs.
 }
 \description{
 This function fits a dynamic mixture via standard maximum likelihood.
-Currently only implemented for the lognormal - generalized Pareto case.
-Bootstrap standard errors are computed via parallel computing.
+Currently only implemented for the lognormal - generalized Pareto case,
+with Cauchy or exponential weight.
 }
 \details{
 Starting values for mu and sigma are the lognormal MLEs computed
 with the observations below the median. Initial values for xi and
 tau are the GPD MLEs obtained with the observations above the median.
-For the location and scale parameter of the Cauchy, we respectively use the first quartile and log(sd(x)/2).
+For the location and scale parameter of the Cauchy, we respectively use
+the first quartile and abs(log(sd(x)/2)). For the parameter of the exponential, we use
+abs(log(sd(x)/2)).
 }
 \examples{
 \donttest{
-mixFit <- MLEfit(Metro2019,0)}
+mixFit <- MLEfit(Metro2019,0,,'cau')}
 }
 \references{
 {
