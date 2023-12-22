@@ -2,10 +2,9 @@
 % Please edit documentation in R/dynloglik.R
 \name{dynloglik}
 \alias{dynloglik}
-\title{Log-likelihood of a Lognormal-GPD dynamic mixture,
-with Cauchy or exponential weight.}
+\title{Log-likelihood of a Lognormal-GPD dynamic mixture}
 \usage{
-dynloglik(x, y, intTol, weight)
+dynloglik(x, y, intTol)
 }
 \arguments{
 \item{x}{(6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.}
@@ -14,8 +13,6 @@ dynloglik(x, y, intTol, weight)
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
 constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}
-
-\item{weight}{'cau' or 'exp': name of weight distribution.}
 }
 \value{
 log-likelihood of the lognormal-GPD mixture evaluated at y.
@@ -25,8 +22,8 @@ This function evaluates the log-likelihood of a Lognormal-GPD dynamic mixture, c
 }
 \examples{
 x <- c(1,2,0,.5,.25,3.5)
-y <- rDynMix(100,x,'cau')
-fit <- dynloglik(x,y,1e-04,'cau')
+y <- rDynMix(100,x)
+fit <- dynloglik(x,y,1e-06)
 }
 \keyword{dynamic}
 \keyword{mixture.}
