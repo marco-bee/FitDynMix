@@ -25,5 +25,5 @@ library(FitDynMix)
 k <- 5000
 epsilon <- .02
 bootreps <- 2
-res = AMLEfit(Metro2019, epsilon, k, bootreps)
+res = AMLEfit(Metro2019, epsilon, k, bootreps, 1e-04, 'exp')
 ```

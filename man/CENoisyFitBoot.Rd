@@ -2,8 +2,7 @@
 % Please edit documentation in R/CENoisyFitBoot.R
 \name{CENoisyFitBoot}
 \alias{CENoisyFitBoot}
-\title{Estimating a dynamic mixture via noisy Cross-Entropy and computing
-bootstrap standard errors}
+\title{Cross-Entropy estimation and bootstrap standard errors}
 \usage{
 CENoisyFitBoot(
   yObs,
@@ -13,6 +12,8 @@ CENoisyFitBoot(
   alpha,
   nsim,
   nrepsInt,
+  xiInst,
+  betaInst,
   eps,
   r = 5,
   weight
@@ -33,6 +34,10 @@ If nboot = 0, no standard errors are computed.}
 \item{nsim}{non-negative integer: number of replications used in the normal and lognormal updating.}
 
 \item{nrepsInt}{non-negative integer: number of replications used in the Monte Carlo estimate of the normalizing constant.}
+
+\item{xiInst}{non-negative real: shape parameter of the instrumental GPD.}
+
+\item{betaInst}{non-negative real: scale parameter of the instrumental GPD.}
 
 \item{eps}{non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.}
 
@@ -62,7 +67,7 @@ Currently only implemented for the lognormal - generalized Pareto,
 with Cauchy or exponential weight. Bootstrap standard errors are computed in parallel.
 }
 \examples{
-res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,.01)
+res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')
 }
 \keyword{Cross-Entropy;}
 \keyword{bootstrap.}

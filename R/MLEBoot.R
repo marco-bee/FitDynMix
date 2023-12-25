@@ -18,7 +18,7 @@
 #' @keywords dynamic mixture; MLE; non-parametric bootstrap.
 #' @export
 #' @examples
-#' bootMLEs <- MLEBoot(1,Metro2019,1e-04,weight)
+#' \donttest{bootMLEs <- MLEBoot(1,Metro2019,1e-04,'exp')}
 
 MLEBoot = function(x,y,intTol,weight)
 {
@@ -46,8 +46,10 @@ MLEBoot = function(x,y,intTol,weight)
       MLE <- res$par # muc, tau, mu, sigma, xi, beta
       },
       error = function(e) {'errore'}) -> condizione
-      if(class(condizione) != "character") i = i + 1
-      if(class(condizione) == "character") j = j + 1
+      # if(class(condizione) != "character") i = i + 1
+      # if(class(condizione) == "character") j = j + 1
+      if(inherits(condizione,"character",which=TRUE)==0) i = i + 1
+      if(inherits(condizione,"character",which=TRUE)==1) j = j + 1
     }
     return(list(MLE=MLE,errori=j))
   }
@@ -73,8 +75,10 @@ if (weight == 'exp')
     MLE <- res$par # lambda, mu, sigma, xi, beta
   },
   error = function(e) {'errore'}) -> condizione
-  if(class(condizione) != "character") i = i + 1
-  if(class(condizione) == "character") j = j + 1
+  # if(class(condizione) != "character") i = i + 1
+  # if(class(condizione) == "character") j = j + 1
+  if(inherits(condizione,"character",which=TRUE)==0) i = i + 1
+  if(inherits(condizione,"character",which=TRUE)==1) j = j + 1
   }
   return(list(MLE=MLE,errori=j))
   }

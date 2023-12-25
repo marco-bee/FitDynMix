@@ -4,7 +4,7 @@
 \alias{dynloglikMC}
 \title{Log-likelihood of a Lognormal-GPD dynamic mixture}
 \usage{
-dynloglikMC(x, y, nreps, weight)
+dynloglikMC(x, y, nreps, xiInst, betaInst, weight)
 }
 \arguments{
 \item{x}{(6 by 1) numerical vector: values of the parameters CA1, CA2, meanlog, sdlog, xi, beta.}
@@ -13,6 +13,10 @@ dynloglikMC(x, y, nreps, weight)
 
 \item{nreps}{non-negative integer: number of replications to be used in the computation of the integral in the normalizing
 constant.}
+
+\item{xiInst}{non-negative real: shape parameter of the instrumental GPD.}
+
+\item{betaInst}{non-negative real: scale parameter of the instrumental GPD.}
 
 \item{weight}{'cau' or 'exp': name of weight distribution.}
 }
@@ -24,7 +28,7 @@ This function evaluates the log-likelihood of a Lognormal-GPD dynamic mixture,
 with Cauchy or exponential weight, approximating the normalizing constant via Monte Carlo simulation.
 }
 \examples{
-llik <- dynloglikMC(c(1,2,0,1,.25,3.5),Metro2019,10000)
+llik <- dynloglikMC(c(1,2,0,1,.25,3.5),Metro2019,10000,3,3,'exp')
 }
 \keyword{dynamic}
 \keyword{mixture.}

@@ -26,7 +26,7 @@ This function evaluates via Monte Carlo simulation the normalizing constant of a
 with Cauchy or exponential weight.
 }
 \examples{
-nconst <- nConst_MC(c(1,2,0,0.5,0.25,3.5), 10000)
+nconst <- nConst_MC(c(1,2,0,0.5,0.25,3.5), 10000, 3, 3, 'cau')
 }
 \keyword{dynamic}
 \keyword{mixture.}

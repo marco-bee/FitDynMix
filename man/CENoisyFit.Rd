@@ -2,9 +2,22 @@
 % Please edit documentation in R/CENoisyFit.R
 \name{CENoisyFit}
 \alias{CENoisyFit}
-\title{Estimating a dynamic mixture via the noisy Cross-Entropy method}
+\title{Cross-Entropy estimation}
 \usage{
-CENoisyFit(x, rawdata, rho, maxiter, alpha, nsim, nrepsInt, eps, r = 5, weight)
+CENoisyFit(
+  x,
+  rawdata,
+  rho,
+  maxiter,
+  alpha,
+  nsim,
+  nrepsInt,
+  xiInst,
+  betaInst,
+  eps,
+  r = 5,
+  weight
+)
 }
 \arguments{
 \item{x}{list: sequence of integers 1,...,K, where K is the mumber of datasets. Set x = 1 in case
@@ -23,6 +36,10 @@ vector contains a dataset to be used for estimation.}
 
 \item{nrepsInt}{non-negative integer: number of replications used in the Monte Carlo estimate of the normalizing constant.}
 
+\item{xiInst}{non-negative real: shape parameter of the instrumental GPD.}
+
+\item{betaInst}{non-negative real: scale parameter of the instrumental GPD.}
+
 \item{eps}{non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.}
 
 \item{r}{positive integer: length of window to be used in the stopping criterion.}
@@ -39,8 +56,8 @@ loglik (scalar): maximized log-likelihood.
 \description{
 This function estimates a dynamic mixture by means of the noisy Cross-Entropy method.
 Currently only implemented for the lognormal - generalized Pareto case,
-with Cauchy or exponential weight. This function
-is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot.R instead.
+with Cauchy or exponential weight. This
+is mainly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot instead.
 }
 \details{
 See Rubinstein and Kroese (2004, chap. 6).
@@ -52,7 +69,10 @@ rho = .05
 eps = 1e-2
 nsim = 1000
 nrepsInt = 1000
-res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,eps)
+xiInst = 3
+betaInst = 3
+r = 5
+res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')
 
 }
 \references{

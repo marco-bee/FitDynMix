@@ -1,5 +1,4 @@
-#' Estimating a dynamic mixture via noisy Cross-Entropy and computing 
-#' bootstrap standard errors
+#' Cross-Entropy estimation and bootstrap standard errors
 #'
 #' This function estimates a dynamic mixture by means of the noisy Cross-Entropy
 #' method and computes bootstrap standard errors.
@@ -13,6 +12,8 @@
 #' @param alpha real in (0,1): smoothing parameter.
 #' @param nsim non-negative integer: number of replications used in the normal and lognormal updating.
 #' @param nrepsInt non-negative integer: number of replications used in the Monte Carlo estimate of the normalizing constant.
+#' @param xiInst non-negative real: shape parameter of the instrumental GPD.
+#' @param betaInst non-negative real: scale parameter of the instrumental GPD.
 #' @param eps non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.
 #' @param r positive integer: length of window to be used in the stopping criterion.
 #' @param weight 'cau' or 'exp': name of weight distribution.
@@ -32,15 +33,15 @@
 #' @keywords dynamic mixture; Cross-Entropy; non-parametric bootstrap.
 #' @export
 #' @examples
-#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,.01)
+#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')
 
-CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,weight)
+CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r=5,weight)
 {
   if (weight == 'cau')
   {
   if (nboot >0)
   {
-    temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+    temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
     res = temp
     v = res[[1]]
     nitObs = res[[2]]
@@ -62,7 +63,7 @@ CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,wei
       n.cores <- parallel::detectCores()
     }
     clust <- parallel::makeCluster(n.cores)
-    temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+    temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
     parallel::stopCluster(cl=clust)
     results = matrix(0,nboot,12)
     bootPars = matrix(0,nboot,6)
@@ -85,7 +86,7 @@ CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,wei
   }
   if (nboot == 0)
   {
-    temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+    temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
     res = temp
     v = res[[1]]
     nit = res[[2]]
@@ -104,7 +105,7 @@ if (weight == 'exp')
   {
   if (nboot >0)
   {
-  temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+  temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
   res = temp
   v = res[[1]]
   nitObs = res[[2]]
@@ -126,7 +127,7 @@ if (weight == 'exp')
     n.cores <- parallel::detectCores()
   }
   clust <- parallel::makeCluster(n.cores)
-  temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+  temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
   parallel::stopCluster(cl=clust)
   results = matrix(0,nboot,10)
   bootPars = matrix(0,nboot,5)
@@ -150,7 +151,7 @@ if (weight == 'exp')
 
 if (nboot == 0)
 {
-  temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,eps,r,weight)
+  temp = CENoisyFit(1,yObs,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
   res = temp
   v = res[[1]]
   nit = res[[2]]

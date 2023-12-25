@@ -1,9 +1,9 @@
-#' Estimating a dynamic mixture via the noisy Cross-Entropy method
+#' Cross-Entropy estimation
 #'
 #' This function estimates a dynamic mixture by means of the noisy Cross-Entropy method.
 #' Currently only implemented for the lognormal - generalized Pareto case,
-#' with Cauchy or exponential weight. This function
-#' is mostly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot.R instead.
+#' with Cauchy or exponential weight. This 
+#' is mainly an auxiliary function, not suitable for the final user. Use CeNoisyFitBoot instead.
 #' @param x list: sequence of integers 1,...,K, where K is the mumber of datasets. Set x = 1 in case
 #' of a single dataset. 
 #' @param rawdata either a list of vectors or a vector: in the former case, each
@@ -13,6 +13,8 @@
 #' @param alpha real in (0,1): smoothing parameter.
 #' @param nsim non-negative integer: number of replications used in the normal and lognormal updating.
 #' @param nrepsInt non-negative integer: number of replications used in the Monte Carlo estimate of the normalizing constant.
+#' @param xiInst non-negative real: shape parameter of the instrumental GPD.
+#' @param betaInst non-negative real: scale parameter of the instrumental GPD.
 #' @param eps non-negative real: tolerance for the stopping criterion of the noisy Cross-Entropy method.
 #' @param r positive integer: length of window to be used in the stopping criterion.
 #' @param weight 'cau' or 'exp': name of weight distribution.
@@ -32,7 +34,10 @@
 #' eps = 1e-2
 #' nsim = 1000
 #' nrepsInt = 1000
-#' res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,eps)
+#' xiInst = 3
+#' betaInst = 3
+#' r = 5
+#' res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')
 #'
 #'@seealso CENoisyFitBoot
 #' @references{
@@ -42,7 +47,7 @@
 #'
 #' @importFrom Rdpack reprompt
 
-CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,weight)
+CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r=5,weight)
 {
   if (is.list(rawdata) == TRUE)
     yObs = rawdata[[x]]
@@ -82,7 +87,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,weight)
       X[,6] = rlnorm(nsim,v[nit-1,11],v[nit-1,12]) # beta
       for (i in 1:nsim)
       {
-        loglik[i] = dynloglikMC(X[i,],yObs,nrepsInt,'cau')
+        loglik[i] = dynloglikMC(X[i,],yObs,nrepsInt,xiInst,betaInst,'cau')
       }
       gammma[nit] = quantile(loglik,1-rho,na.rm=TRUE)
       indici = which(loglik>gammma[nit])
@@ -160,7 +165,6 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,weight)
   {
     lambda0 = abs(log(sd(yObs)/2))
     v0 = c(as.double(lambda0), 1, as.double(mu0), 1, as.double(sigma0), 1, as.double(log(xi0)), 2, as.double(log(beta0)), 2)
-    
     X = matrix(0,nsim,5) # columns = number of parameters to be estimated
     v = matrix(0,nsim,10) # columns = number of parameters of the instrumental distributions
     v[1,] = v0
@@ -178,7 +182,7 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,eps,r=5,weight)
       X[,5] = rlnorm(nsim,v[nit-1,9],v[nit-1,10]) # beta
       for (i in 1:nsim)
       {
-        loglik[i] = dynloglikMC(X[i,],yObs,nrepsInt,'exp')
+        loglik[i] = dynloglikMC(X[i,],yObs,nrepsInt, xiInst, betaInst, 'exp')
       }
       gammma[nit] = quantile(loglik,1-rho,na.rm=TRUE)
       indici = which(loglik>gammma[nit])
