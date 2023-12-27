@@ -1,5 +1,4 @@
-#' Log-likelihood of a Lognormal-GPD dynamic mixture,
-#' with Cauchy or exponential weight.
+#' Log-likelihood of a Lognormal-GPD dynamic mixture
 #'
 #' This function evaluates the log-likelihood of a Lognormal-GPD dynamic mixture, computing the integral in the normalizing constant via quadrature methods.
 #' @param x (6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.

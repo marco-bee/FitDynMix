@@ -1,7 +1,7 @@
-#' Creating bootstrap samples from observed data and computing MLEs
+#' Bootstrap standard errors of MLEs
 #'
 #' This function creates bootstrap samples of input data and fits a dynamic mixture via
-#' standard maximum likelihood.
+#' maximum likelihood.
 #' @param x list of integers: indices of replications.
 #' @param y numerical vector: observed data.
 #' @param intTol threshold for stopping the computation of the integral in the normalization

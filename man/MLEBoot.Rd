@@ -2,7 +2,7 @@
 % Please edit documentation in R/MLEBoot.R
 \name{MLEBoot}
 \alias{MLEBoot}
-\title{Creating bootstrap samples from observed data and computing MLEs}
+\title{Bootstrap standard errors of MLEs}
 \usage{
 MLEBoot(x, y, intTol, weight)
 }
@@ -25,7 +25,7 @@ errors: number of times the MLE algorithm breaks down.
 }
 \description{
 This function creates bootstrap samples of input data and fits a dynamic mixture via
-standard maximum likelihood.
+maximum likelihood.
 }
 \details{
 MLEs are computed by means of the optim function. When it breaks

@@ -2,8 +2,7 @@
 % Please edit documentation in R/dynloglik.R
 \name{dynloglik}
 \alias{dynloglik}
-\title{Log-likelihood of a Lognormal-GPD dynamic mixture,
-with Cauchy or exponential weight.}
+\title{Log-likelihood of a Lognormal-GPD dynamic mixture}
 \usage{
 dynloglik(x, y, intTol, weight)
 }
