@@ -1,7 +1,8 @@
 #' Log-likelihood of a Lognormal-GPD dynamic mixture
 #'
 #' This function evaluates the log-likelihood of a Lognormal-GPD dynamic mixture, computing the integral in the normalizing constant via quadrature methods.
-#' @param x (6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.
+#' @param x if weight is equal to 'cau', (6 by 1) numerical vector: values of \eqn{\mu_c}, \eqn{\tau}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta};
+#' if weight is equal to 'exp', (5 by 1) numerical vector: values of \eqn{\lambda}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.
 #' @param y vector: points where the function is evaluated.
 #' @param intTol non-negative scalar: threshold for stopping the computation of the integral in the normalization
 #' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.

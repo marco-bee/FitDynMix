@@ -2,7 +2,7 @@
 #'
 #' This function fits a dynamic mixture via Approximate Maximum Likelihood.
 #' Currently only implemented for the lognormal - generalized Pareto case,
-#' with Cauchy or exponential weight..
+#' with Cauchy or exponential weight.
 #' The bootstrap estimation of the standard errors of the MLEs (used for finding
 #' the supports of the uniform priors) is carried out via parallel computing.
 #' @param yObs numerical vector: observed sample.

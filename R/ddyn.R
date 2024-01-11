@@ -3,9 +3,9 @@
 #' This function evaluates the density of a Lognormal-GPD dynamic mixture,
 #' with Cauchy or exponential weight.
 #' @param x non-negative vector: points where the density is evaluated.
-#' @param pars numerical vector: if weight = cau, values of CA1, CA2,
-#' meanlog, sdlog, xi, beta; if weight = exp, values of lambda,
-#' meanlog, sdlog, xi, beta.
+#' @param pars numerical vector: if weight is equal to 'cau', values of \eqn{\mu_c}, \eqn{\tau},
+#' \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}; if weight is equal to 'exp', values of \eqn{\lambda},
+#' \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.
 #' @param intTol non-negative scalar: threshold for stopping the computation of the integral in the normalization
 #' constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.
 #' @param weight 'cau' or 'exp': name of weight distribution.

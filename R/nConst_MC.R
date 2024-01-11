@@ -2,7 +2,8 @@
 #'
 #' This function evaluates via Monte Carlo simulation the normalizing constant of a Lognormal-GPD dynamic mixture,
 #' with Cauchy or exponential weight.
-#' @param x (6 by 1) numerical vector: values of the parameters CA1, CA2, meanlog, sdlog, xi, beta.
+#' @param x if weight is equal to 'cau', (6 by 1) numerical vector: values of \eqn{\mu_c}, \eqn{\tau}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta};
+#' if weight is equal to 'exp', (5 by 1) numerical vector: values of \eqn{\lambda}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.
 #' @param nreps  number of replications to be used in the computation of the integral in the normalizing
 #' constant.
 #' @param xiInst real: value of the shape parameter of the instrumental density. Default value equal to 3.

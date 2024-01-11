@@ -9,9 +9,9 @@ ddyn(x, pars, intTol, weight)
 \arguments{
 \item{x}{non-negative vector: points where the density is evaluated.}
 
-\item{pars}{numerical vector: if weight = cau, values of CA1, CA2,
-meanlog, sdlog, xi, beta; if weight = exp, values of lambda,
-meanlog, sdlog, xi, beta.}
+\item{pars}{numerical vector: if weight is equal to 'cau', values of \eqn{\mu_c}, \eqn{\tau},
+\eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}; if weight is equal to 'exp', values of \eqn{\lambda},
+\eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.}
 
 \item{intTol}{non-negative scalar: threshold for stopping the computation of the integral in the normalization
 constant: if the integral on the interval from n-1 to n is smaller than intTol, the approximation procedure stops.}

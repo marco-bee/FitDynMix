@@ -7,7 +7,8 @@
 nConst_MC(x, nreps, xiInst = 3, betaInst = 3, weight)
 }
 \arguments{
-\item{x}{(6 by 1) numerical vector: values of the parameters CA1, CA2, meanlog, sdlog, xi, beta.}
+\item{x}{if weight is equal to 'cau', (6 by 1) numerical vector: values of \eqn{\mu_c}, \eqn{\tau}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta};
+if weight is equal to 'exp', (5 by 1) numerical vector: values of \eqn{\lambda}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.}
 
 \item{nreps}{number of replications to be used in the computation of the integral in the normalizing
 constant.}

@@ -7,7 +7,8 @@
 dynloglik(x, y, intTol, weight)
 }
 \arguments{
-\item{x}{(6 by 1) numerical vector: values of CA1, CA2, meanlog, sdlog, xi, beta.}
+\item{x}{if weight is equal to 'cau', (6 by 1) numerical vector: values of \eqn{\mu_c}, \eqn{\tau}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta};
+if weight is equal to 'exp', (5 by 1) numerical vector: values of \eqn{\lambda}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.}
 
 \item{y}{vector: points where the function is evaluated.}
 
