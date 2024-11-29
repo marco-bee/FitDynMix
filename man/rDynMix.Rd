@@ -9,7 +9,7 @@ rDynMix(nreps, x, weight)
 \arguments{
 \item{nreps}{integer: number of observations sampled from the mixture.}
 
-\item{x}{numerical vector: if weight = 'cau', values of \eqn{mu_c}, \eqn{\tau}, \eqn{\mu},
+\item{x}{numerical vector: if weight = 'cau', values of \eqn{\mu_c}, \eqn{\tau}, \eqn{\mu},
 \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}; if weight = 'exp', values of \eqn{\lambda}, \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.}
 
 \item{weight}{'cau' or 'exp': name of weight distribution.}
