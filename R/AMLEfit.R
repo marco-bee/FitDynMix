@@ -65,7 +65,7 @@ AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-4,weight)
     tau0 = abs(log(sd(yObs)/2))
     x0Lik = as.numeric(c(muc0,tau0,mu0,sigma0,xi0,beta0))
     res <- optim(x0Lik,dynloglik, gr=NULL,yObs,intTol,'cau',method='L-BFGS-B',
-          lower=c(-Inf,.01,-Inf,.01,.01,.01),upper=c(Inf,Inf,Inf,Inf,Inf,10),control=list(fnscale=-1))
+          lower=c(-Inf,.01,-Inf,.01,.01,.01),upper=c(Inf,Inf,Inf,Inf,Inf,Inf),control=list(fnscale=-1))
     estMLE <- c(res$par,res$value) # muc, tau, mu, sigma, xi, beta
     nreps.list <- sapply(1:bootreps, list)
     
