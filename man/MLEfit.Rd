@@ -31,16 +31,16 @@ Currently only implemented for the lognormal - generalized Pareto case,
 with Cauchy or exponential weight.
 }
 \details{
-Starting values for mu and sigma are the lognormal MLEs computed
-with the observations below the median. Initial values for xi and
-tau are the GPD MLEs obtained with the observations above the median.
+Starting values for \eqn{\mu} and \eqn{\sigma} are the lognormal MLEs computed
+with the observations below the median. Initial values for \eqn{\xi} and
+\eqn{\tau} are the GPD MLEs obtained with the observations above the median.
 For the location and scale parameter of the Cauchy, we respectively use
 the first quartile and abs(log(sd(x)/2)). For the parameter of the exponential, we use
 abs(log(sd(x)/2)).
 }
 \examples{
 \donttest{
-mixFit <- MLEfit(Metro2019,0,,'cau')}
+mixFit <- MLEfit(Metro2019,0,1e-04,'cau')}
 }
 \references{
 {

@@ -1,6 +1,6 @@
 #' Simulating a dynamic lognormal-Pareto mixture
 #'
-#' This function fits a dynamic mixture by Approximate Maximum Likelihood and by standard maximum likelihood.
+#' This function simulates a dynamic mixture.
 #' Currently only implemented for the lognormal - generalized Pareto case,
 #' with Cauchy or exponential weight.
 #' @param nreps integer: number of observations sampled from the mixture.
