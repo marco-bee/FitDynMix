@@ -68,7 +68,6 @@ CENoisyFit <- function(x,rawdata,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst
     muc0 = quantile(yObs, 0.5)
     tau0 = abs(log(sd(yObs)/2))
     v0 = c(as.double(muc0), 1, tau0, 1.5, as.double(mu0), 1, as.double(sigma0), 1, as.double(log(xi0)), 2, as.double(log(beta0)), 2)
-    
     X = matrix(0,nsim,6) # columns = number of parameters to be estimated
     v = matrix(0,nsim,12) # columns = number of parameters of the instrumental distributions
     v[1,] = v0
