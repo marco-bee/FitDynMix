@@ -30,7 +30,6 @@
 #' stddev: bootstrap standard errors.
 #' 
 #' If nboot = 0, only estPars, nit and loglik are returned.
-#' @keywords dynamic mixture; Cross-Entropy; non-parametric bootstrap.
 #' @export
 #' @examples
 #' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')

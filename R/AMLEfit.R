@@ -33,7 +33,6 @@
 #' For the Cauchy parameters, the support is given by the range of the
 #' bootstrap distribution after discarding the outliers.
 #' Be aware that computing times are large when k and/or bootreps are large.
-#' @keywords dynamic mixture; approximate maximum likelihood.
 #' @seealso{\code{\link{AMLEmode}}.}
 #' @export
 #' @import stats graphics

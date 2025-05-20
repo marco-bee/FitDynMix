@@ -10,7 +10,6 @@
 #' number of parameters.
 #' @return A list containing the 4 approximate modes.
 #' @details The bandwidth is estimated via smoothed cross-validation
-#' @keywords dynamic mixture; approximate maximum likelihood.
 #' @export
 
 AMLEmode <- function(ABCsam)

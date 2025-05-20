@@ -25,7 +25,6 @@
 #' loglik (scalar): maximized log-likelihood.
 
 #' @details See Rubinstein and Kroese (2004, chap. 6).
-#' @keywords dynamic mixture; cross-entropy.
 #' @export
 #' @examples
 #' maxiter = 10

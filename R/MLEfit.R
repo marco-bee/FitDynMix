@@ -24,7 +24,6 @@
 #' For the location and scale parameter of the Cauchy, we respectively use
 #' the first quartile and abs(log(sd(x)/2)). For the parameter of the exponential, we use
 #' abs(log(sd(x)/2)).
-#' @keywords dynamic mixture; maximum likelihood.
 #' @seealso [AMLEfit]
 #' @export
 #' @examples

@@ -7,7 +7,6 @@
 #' @return out scalar: Cramér - von Mises distance between the two samples
 #' @details This function computes the Cramér - von Mises distance
 #' between two samples. See Drovandi and Frazier (2022, p. 7).
-#' @keywords dynamic mixture; simulation.
 #' @export
 #' @examples
 #' out = cvm_stat_M(runif(100),rnorm(100),2)

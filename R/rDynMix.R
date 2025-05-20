@@ -10,7 +10,6 @@
 #' @return ysim (nreps x 1) vector: nreps random numbers from the lognormal-GPD dynamic mixture.
 #' @details This function simulates a dynamic lognormal-GPD mixture using
 #' the algorithm of Frigessi et al. (2002, p. 221).
-#' @keywords dynamic mixture; simulation.
 #' @export
 #' @examples
 #' ysim <- rDynMix(100,c(1,2,0,0.5,0.25,3),'cau')

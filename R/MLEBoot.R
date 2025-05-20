@@ -15,7 +15,6 @@
 #' @details MLEs are computed by means of the optim function. When it breaks
 #' down, the sample is discarded and a new one is generated. The function keeps
 #' track of the number of times this happens.
-#' @keywords dynamic mixture; MLE; non-parametric bootstrap.
 #' @export
 #' @examples
 #' \donttest{bootMLEs <- MLEBoot(1,Metro2019,1e-04,'exp')}
