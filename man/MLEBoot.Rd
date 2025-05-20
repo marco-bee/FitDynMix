@@ -35,8 +35,3 @@ track of the number of times this happens.
 \examples{
 \donttest{bootMLEs <- MLEBoot(1,Metro2019,1e-04,'exp')}
 }
-\keyword{MLE;}
-\keyword{bootstrap.}
-\keyword{dynamic}
-\keyword{mixture;}
-\keyword{non-parametric}

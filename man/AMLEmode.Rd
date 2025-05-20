@@ -26,8 +26,3 @@ Typically used in connection with AMLEfit (see AMLEfit for examples).
 \details{
 The bandwidth is estimated via smoothed cross-validation
 }
-\keyword{approximate}
-\keyword{dynamic}
-\keyword{likelihood.}
-\keyword{maximum}
-\keyword{mixture;}

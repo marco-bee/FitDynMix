@@ -65,8 +65,3 @@ res = AMLEfit(Metro2019, epsilon, k, bootreps, , 'cau')}
 \seealso{
 {\code{\link{AMLEmode}}.}
 }
-\keyword{approximate}
-\keyword{dynamic}
-\keyword{likelihood.}
-\keyword{maximum}
-\keyword{mixture;}

@@ -31,6 +31,3 @@ out = cvm_stat_M(runif(100),rnorm(100),2)
 \insertRef{dro22}{FitDynMix}
 }
 }
-\keyword{dynamic}
-\keyword{mixture;}
-\keyword{simulation.}

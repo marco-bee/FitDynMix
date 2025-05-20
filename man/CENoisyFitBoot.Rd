@@ -69,8 +69,3 @@ with Cauchy or exponential weight. Bootstrap standard errors are computed in par
 \examples{
 res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')
 }
-\keyword{Cross-Entropy;}
-\keyword{bootstrap.}
-\keyword{dynamic}
-\keyword{mixture;}
-\keyword{non-parametric}

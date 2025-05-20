@@ -50,7 +50,3 @@ mixFit <- MLEfit(Metro2019,0,1e-04,'cau')}
 \seealso{
 \link{AMLEfit}
 }
-\keyword{dynamic}
-\keyword{likelihood.}
-\keyword{maximum}
-\keyword{mixture;}

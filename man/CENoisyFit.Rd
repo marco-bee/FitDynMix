@@ -83,6 +83,3 @@ res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,ep
 \seealso{
 CENoisyFitBoot
 }
-\keyword{cross-entropy.}
-\keyword{dynamic}
-\keyword{mixture;}

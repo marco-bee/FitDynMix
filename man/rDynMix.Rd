@@ -34,6 +34,3 @@ ysim <- rDynMix(100,c(1,2,0,0.5,0.25,3),'cau')
 \insertRef{fri02}{FitDynMix}
 }
 }
-\keyword{dynamic}
-\keyword{mixture;}
-\keyword{simulation.}
