@@ -1,3 +1,5 @@
+# FitDynMix 1.0.1
+
 # FitDynMix 1.0.0
 
 * In addition to the lognormal-GPD dynamic mixture with Cauchy weight, the package now implements estimation of a lognormal-GPD dynamic mixture with exponential weight.

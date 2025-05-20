@@ -1,6 +1,6 @@
 Package: FitDynMix
 Title: Estimation of Dynamic Mixtures
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person("Marco", "Bee", , "marco.bee@unitn.it", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9579-3650"))
