@@ -32,7 +32,7 @@
 #' If nboot = 0, only estPars, nit and loglik are returned.
 #' @export
 #' @examples
-#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')
+#' \donttest{res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')}
 
 CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r=5,weight)
 {

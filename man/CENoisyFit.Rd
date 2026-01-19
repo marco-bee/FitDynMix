@@ -63,7 +63,7 @@ is mainly an auxiliary function, not suitable for the final user. Use CeNoisyFit
 See Rubinstein and Kroese (2004, chap. 6).
 }
 \examples{
-maxiter = 10
+\donttest{maxiter = 10
 alpha = .5
 rho = .05
 eps = 1e-2
@@ -72,7 +72,7 @@ nrepsInt = 1000
 xiInst = 3
 betaInst = 3
 r = 5
-res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')
+res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')}
 
 }
 \references{
