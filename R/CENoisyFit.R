@@ -27,7 +27,7 @@
 #' @details See Rubinstein and Kroese (2004, chap. 6).
 #' @export
 #' @examples
-#' \donttest{maxiter = 10
+#' maxiter = 10
 #' alpha = .5
 #' rho = .05
 #' eps = 1e-2
@@ -36,7 +36,7 @@
 #' xiInst = 3
 #' betaInst = 3
 #' r = 5
-#' res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')}
+#' res <- CENoisyFit(1,Metro2019,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,'exp')
 #'
 #'@seealso CENoisyFitBoot
 #' @references{

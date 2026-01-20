@@ -1,6 +1,6 @@
 Package: FitDynMix
 Title: Estimation of Dynamic Mixtures
-Version: 1.0.2
+Version: 1.0.1
 Authors@R: 
     person("Marco", "Bee", , "marco.bee@unitn.it", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9579-3650"))
@@ -8,7 +8,7 @@ Description: Estimation of a dynamic lognormal - Generalized Pareto mixture via 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true

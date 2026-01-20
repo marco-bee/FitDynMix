@@ -68,7 +68,12 @@ AMLEfit <- function(yObs,epsilon,k,bootreps,intTol=1e-4,weight)
     estMLE <- c(res$par,res$value) # muc, tau, mu, sigma, xi, beta
     nreps.list <- sapply(1:bootreps, list)
     
-    n.cores <- 2L
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    if (nzchar(chk) && chk == "TRUE") {
+      n.cores <- 2L
+    } else {
+      n.cores <- parallel::detectCores()
+    }
     clust <- parallel::makeCluster(n.cores)
     MLEboot = matrix(0,bootreps,6)
     temp <- parallel::parLapply(clust,nreps.list, MLEBoot,yObs,intTol,'cau')

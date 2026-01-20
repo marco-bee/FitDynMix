@@ -32,7 +32,7 @@
 #' If nboot = 0, only estPars, nit and loglik are returned.
 #' @export
 #' @examples
-#' \donttest{res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')}
+#' res = CENoisyFitBoot(Metro2019,0,.05,20,.5,500,500,3,3,.01,5,'exp')
 
 CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r=5,weight)
 {
@@ -55,7 +55,12 @@ CENoisyFitBoot = function(yObs,nboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,beta
       Yboot[[i]] = sample(yObs,n,replace=TRUE)
     }
     nboot.list <- sapply(1:nboot, list)
-    n.cores <- 2L
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    if (nzchar(chk) && chk == "TRUE") {
+      n.cores <- 2L
+    } else {
+      n.cores <- parallel::detectCores()
+    }
     clust <- parallel::makeCluster(n.cores)
     temp <- parallel::parLapply(clust,nboot.list,CENoisyFit,Yboot,rho,maxiter,alpha,nsim,nrepsInt,xiInst,betaInst,eps,r,weight)
     parallel::stopCluster(cl=clust)
